@@ -15,8 +15,9 @@ spring:
       server:
         git:
           uri: https://github.com/kakao-tech-bootcamp-team-2/config-repo
+          search-paths:
+          - '{application}'
           default-label: main
           timeout: 5
           clone-on-start: true
           force-pull: true
-
