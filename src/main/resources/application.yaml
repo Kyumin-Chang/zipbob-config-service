@@ -10,9 +10,13 @@ server:
 spring:
   application:
     name: config-service
+  profiles:
+    active: default
   cloud:
     config:
       server:
+        native:
+          search-locations: ${NATIVE_LOCATION}
         git:
           uri: https://github.com/kakao-tech-bootcamp-team-2/config-repo
           search-paths:
