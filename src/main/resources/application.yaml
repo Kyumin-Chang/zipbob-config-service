@@ -12,6 +12,11 @@ spring:
     name: config-service
   profiles:
     active: default
+  rabbitmq:
+    host: ${RABBITMQ_HOST}
+    port: ${RABBITMQ_PORT}
+    username: ${RABBITMQ_USERNAME}
+    password: ${RABBITMQ_PASSWORD}
   cloud:
     config:
       server:
@@ -25,3 +30,9 @@ spring:
           timeout: 5
           clone-on-start: true
           force-pull: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, bus-refresh
