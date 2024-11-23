@@ -1,27 +1,16 @@
-server:
-  port: 8888
-  tomcat:
-    connection-timeout: 2s
-    keep-alive-timeout: 15s
-    threads:
-      max: 50
-      min-spare: 5
-
 spring:
-  application:
-    name: config-service
   profiles:
-    active: default
+    active: native
   rabbitmq:
-    host: ${RABBITMQ_HOST}
-    port: ${RABBITMQ_PORT}
-    username: ${RABBITMQ_USERNAME}
-    password: ${RABBITMQ_PASSWORD}
+    host: ${vault.rabbitmq_host}
+    port: ${vault.rabbitmq_port}
+    username: ${vault.rabbitmq_username}
+    password: ${vault.rabbitmq_password}
   cloud:
     config:
       server:
         native:
-          search-locations: ${NATIVE_LOCATION}
+          search-locations: ${vault.native_location}
         git:
           uri: https://github.com/kakao-tech-bootcamp-team-2/config-repo
           search-paths:

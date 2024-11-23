@@ -1,0 +1,24 @@
+server:
+  port: 8888
+  tomcat:
+    connection-timeout: 2s
+    keep-alive-timeout: 15s
+    threads:
+      max: 50
+      min-spare: 5
+
+spring:
+  application:
+    name: config-service
+  cloud:
+    vault:
+      host: localhost
+      port: 8200
+      scheme: http
+      uri: http://localhost:8200
+      token: ${VAULT_TOKEN}
+      authentication: token
+      kv:
+        backend: config-service-secret
+        application-name: config-service
+        profiles: dev
