@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: native
+    active: native, vault
   rabbitmq:
     host: ${vault.rabbitmq_host}
     port: ${vault.rabbitmq_port}
@@ -9,6 +9,16 @@ spring:
   cloud:
     config:
       server:
+        vault:
+          order: 1
+          host: localhost
+          port: 8200
+          token: ${VAULT_TOKEN}
+          authentication: token
+          kv-version: 2
+          backend: config-service-secret
+          profile-separator: '/'
+          scheme: http
         native:
           search-locations: ${vault.native_location}
         git:
