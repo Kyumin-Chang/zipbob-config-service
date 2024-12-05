@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: native, vault
+    active: git, vault
   rabbitmq:
     host: ${vault.rabbitmq_host}
     port: ${vault.rabbitmq_port}
