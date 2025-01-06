@@ -22,9 +22,9 @@ spring:
         native:
           search-locations: ${vault.native_location}
         git:
-          uri: https://github.com/kakao-tech-bootcamp-team-2/config-repo
+          uri: https://github.com/Kyumin-Chang/zipbob-config-repo
           search-paths:
-          - '{application}'
+            - '{application}'
           default-label: main
           timeout: 5
           clone-on-start: true
